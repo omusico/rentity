@@ -16,19 +16,13 @@
             </div>
             <div class="action">
                 <div class="btn-group">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#addlist"
-                            id="btn-modal-list">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#addlist" id="btn-modal-list">
                         <span class="fa fa-list"></span> List it!
                     </button>
                     <button class="btn btn-success" data-toggle="modal" data-target="#pricing">
                         <span class="fa fa-dollar"></span> Pricing
                     </button>
-                    <!--
-                    <a class="btn btn-info" href=https://www.youtube.com/watch?v=rvw6pEhc7Ew" rel="prettyPhoto"
-                       title="TextRiley Video">
-                        <span class="fa fa-video-camera"></span> Watch Video
-                    </a>
-                    -->
+
                 </div>
             </div>
         </div>
@@ -122,6 +116,7 @@
         </div>
     </div>
 </section>
+<!--
 <div class="modal fade" id="playvideo">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -138,6 +133,7 @@
         </div>
     </div>
 </div>
+-->
 <div class="modal fade" id="thanks">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -219,13 +215,13 @@
             <div class="modal-header">
 
                 <!-- Modal Title -->
-                <h2>List Your Place</h2>
+                <h2>Sign up to get started</h2>
             </div>
 
             <!-- Modal Content -->
             <div class="modal-body">
                 <div class="result"></div>
-                <form id="listing-form" class="form-horizontal" action="/addlist" method="post">
+                <form id="listing-form" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="pad-details">
                         <div class="form-group">
@@ -244,37 +240,25 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="col-md-12">
-                                    <label for="address">City</label>
-                                    <input name="address" class="form-control" id="address"
-                                           placeholder="Enter your city"
-                                           type="text" required>
-                                </div>
-                                <span id="map"></span>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="col-md-6">
                                     <label for="email">Email Address</label>
                                     <input name="email" class="form-control" id="email"
                                            placeholder="Your Email Address"
                                            type="email" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="phone">Contact Number</label>
-                                    <input name="phone" class="form-control" id="phone"
-                                           placeholder="Your Contact Number"
-                                           type="tel" required>
+                                <div class="col-md-12">
+                                    <label for="password">Password</label>
+                                    <input name="password" class="form-control" id="password"
+                                           placeholder="Your Password"
+                                           type="password" required>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    <div class="alert alert-danger errors"></div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">
                             Send

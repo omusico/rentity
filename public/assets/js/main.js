@@ -82,7 +82,9 @@ var riley = {
             });
         }
     },
+
     ListingForm: function () {
+
         $('#listing-form').on('submit', function (e) {
             e.preventDefault();
             var data = $(this).serialize();
@@ -90,24 +92,26 @@ var riley = {
                 'type': 'POST',
                 'data': data,
                 'dataType': 'json',
-                'url': "/ajax",
-                beforeSend: function () {
-                    // Prevent double send
-                    $("#btn-modal-list").attr("disabled", true);
-                },
+                'url': "/ajax/create",
                 success: function (resp) {
-                    if (resp.status == 200 || resp.status == 400) {
+                    if (resp.status == 200) {
                         $('#addlist').modal('hide');
                         $('#thanks').modal('show');
                     }
                     else {
-                        console.log("error");
-                        $('.result').html('<div><h2>' + resp.message + '</h2></div><div><a href="index.html" class="btn btn-success btn-lg">Go back home</a></div>').toggleClass('animated fadeInRight').delay(1500);
+                        $('.errors').html(resp.message).fadeIn('slow');
+                        $('#email').css({
+                            'border-color' : 'red'
+                        })
                     }
 
                 },
-                error: function () {
-                    console.log("errorsss");
+                error: function (jqXHR, textStatus, errorThrown) {
+                    var error = JSON.parse(jqXHR.responseText);
+                    $.each(error, function (i, v) {
+                        $('.errors').append(v + '<br />').css({'color': 'red'});
+                    });
+
                 }
             });
         });
@@ -140,35 +144,29 @@ var riley = {
         }
     },
 
-    RegisterForm: function () {
-        $('#register-form').on('submit', function (e) {
+    Login: function () {
+        $('#LoginForm').on('submit', function(e){
             e.preventDefault();
-            var data = $(this).serialize();
-            $.ajax({
-                'type': 'POST',
-                'data': data,
-                'dataType': 'json',
-                'url': "ajax.php",
-                beforeSend: function () {
-                    // Prevent double send
-                    $(":submit").attr("disabled", true);
-                },
-                success: function (resp) {
-                    if (resp.status == 200 || resp.status == 400) {
-                        console.log('Sent');
-                        $('#register-form').toggleClass('animated fadeOutLeft');
-                        $('#form-h1').toggleClass('animated fadeOutRight');
-                        $('.result').html('<div><h2>' + resp.message + '</h2></div>').toggleClass('animated fadeInRight').delay(1500);
-                    }
-                    else {
-                        console.log("error");
-                        $('.result').html('<div><h2>' + resp.message + '</h2></div>').toggleClass('animated fadeInRight').delay(1500);
-                    }
 
+            $.ajax({
+               'type': 'POST',
+                'data' : $(this).serialize(),
+                'url' : '/ajax/login',
+                success : function(resp) {
+                    if (resp.status == 200 )
+                    {
+                        console.log("logged in");
+                        $(location).attr('href', '/dashboard');
+                    }
+                    else
+                    {
+                        $('.errors').html(resp.message).fadeIn('slow');
+                    }
                 },
-                error: function () {
-                    console.log("errorsss");
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
                 }
+
             });
         });
     }
@@ -177,9 +175,9 @@ var riley = {
 
 (function ($) {
     riley.effects();
-    riley.formActions();
-    riley.GEO();
+    // riley.formActions(); unused
+    riley.GEO(); // to be removed
     riley.ListingForm();
     riley.StripePayments();
-    riley.RegisterForm();
+    riley.Login();
 })(jQuery);

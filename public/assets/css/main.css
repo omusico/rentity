@@ -46,10 +46,19 @@ section {
   width: 100%;
   background: rgba(0, 0, 0, 0.5); }
 
-/** BOOTSTRAP MODAL **/
 .modal {
   z-index: 5;
   overflow-y: auto; }
+  .modal .modal-header {
+    text-align: center; }
+  .modal .modal-body {
+    padding: 20px 50px; }
+  .modal .modal-footer {
+    text-align: center; }
+  .modal form .input-group, .modal form .form-control {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    width: 100%; }
 
 .modal-open {
   overflow: auto; }
@@ -59,7 +68,7 @@ section {
 
 .colored {
   color: #60C6D2;
-  font-weight: 400; }
+  font-weight: 700; }
 
 hr {
   border: 0;
@@ -97,6 +106,62 @@ hr {
   font-size: 24px;
   line-height: 1.33;
   border-radius: 35px; }
+
+/** RIBBONS **/
+.box {
+  width: 200px;
+  height: 90px;
+  position: relative;
+  border: 1px solid #BBB; }
+
+.ribbon {
+  font-size: 0.7em;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right; }
+
+.ribbon span {
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+  box-shadow: 0 3px 10px -5px black;
+  position: absolute;
+  top: 19px;
+  right: -21px; }
+
+.ribbon span::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #79A70A;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #79A70A; }
+
+.ribbon span::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #79A70A;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #79A70A; }
 
 /** BOOTSTRAP NAVBAR **/
 .navbar-default {
@@ -254,9 +319,12 @@ hr {
 /******* PAYMENT ***********/
 .payment {
   height: auto;
-  text-align: center; }
+  text-align: center;
+  font-weight: 700; }
   .payment ul {
     padding: 25px 0; }
+    .payment ul li {
+      text-align: left; }
   .payment p {
     font-size: 1em;
     font-weight: 400; }
@@ -330,7 +398,14 @@ footer {
     footer .social a {
       padding: 5px; }
 
+/******* DASHBOARD ***********/
+.dashboard .container {
+  border: 1px solid #f5f5f5; }
+
 /******* RESPONSIVE FIXES ***********/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .main h2 {
+    font-size: 2em; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   h1 {
     font-size: 2em; }
@@ -385,6 +460,9 @@ footer {
   .ourworks {
     height: auto;
     padding: 50px 0;
-    border-top: 1px solid #f5f5f5; } }
+    border-top: 1px solid #f5f5f5; }
+
+  .payment ul li {
+    width: 100%; } }
 
 /*# sourceMappingURL=main.css.map */

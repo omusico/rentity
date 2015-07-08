@@ -49,16 +49,16 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">Riley</a>
-                    <!-- <a class="" href="index.html"><img src="img/logo2.png" alt="Riley Logo"></a> -->
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/listing">Owners and Managers</a></li>
-                        <!-- <li><a href="photography.html">Schedule Professional Photography</a></li> -->
                         <li><a href="/feedback">Give Feedback to Riley</a></li>
-                        <!--
-                        <li><a href="payment.html">Management Companies</a></li>
-                        -->
+                        @if (Auth::guest())
+                        <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
+                        @else
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -77,6 +77,58 @@
     </div>
 
 </footer>
+
+
+<!--- LOGIN MODAL -->
+
+<div class="modal fade" role="dialog" id="login">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <!-- Modal Title -->
+                <h2>Welcome Back</h2>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="modal-body">
+                <form class="form-horizontal" id="LoginForm">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="col-md-12">
+                                    <label for="email">Email Address</label>
+                                    <input name="email" class="form-control" id="email"
+                                           placeholder="Your Email Address"
+                                           type="email" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="password">Password</label>
+                                    <input name="password" class="form-control" id="password"
+                                           placeholder="Your Password"
+                                           type="password" required>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="alert alert-danger errors"></div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="fa fa-sign-in"></span> Login
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <span class="fa fa-close"></span> Close
+                        </button>
+
+                    </div>
+
+                </form>
+                <div class="text-center"><a href="#">Forgotten Credential</a> | <a href="#">Contact Us</a></div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <!-- SCRIPTS -->
 
 <script>

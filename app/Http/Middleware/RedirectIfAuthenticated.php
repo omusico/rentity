@@ -34,10 +34,16 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next)
     {
+        /*
+         *
+         * TODO: do something if user is logged in
+
+
         if ($this->auth->check()) {
             return redirect('/home');
         }
 
         return $next($request);
+        */
     }
 }

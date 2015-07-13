@@ -46,6 +46,17 @@ section {
   width: 100%;
   background: rgba(0, 0, 0, 0.5); }
 
+/** FORM **/
+form .input-group, form .form-control {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  width: 100%; }
+
+.form-panel {
+  padding: 30px;
+  margin-top: 30px; }
+
+/** END FORM **/
 .modal {
   z-index: 5;
   overflow-y: auto; }
@@ -55,10 +66,6 @@ section {
     padding: 20px 50px; }
   .modal .modal-footer {
     text-align: center; }
-  .modal form .input-group, .modal form .form-control {
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    width: 100%; }
 
 .modal-open {
   overflow: auto; }
@@ -293,6 +300,9 @@ hr {
     font-size: 2em; }
   .how-it-really-works dd {
     font-size: 1.4em; }
+
+.standAloneForms {
+  height: 79%; }
 
 /******* CONTACT US ***********/
 .contact {

@@ -33,8 +33,6 @@
     <!-- MODERNIZR -->
     {!! Html::script('assets/vendors/modernizr-2.8.3-respond-1.4.2.min.js') !!}
 
-
-
 </head>
 <body>
 <header>
@@ -123,13 +121,71 @@
                     </div>
 
                 </form>
-                <div class="text-center"><a href="#">Forgotten Credential</a> | <a href="#">Contact Us</a></div>
+                <div class="text-center"><a href="#" data-toggle="modal" data-target="#forgotPassword">Forgotten Credential</a> | <a href="#">Contact Us</a></div>
             </div>
 
         </div>
     </div>
 </div>
+<!-- END LOGIN MODAL -->
+
+<!-- LOADING MODAL -->
+<div class="modal fade" role="dialog" id="loading">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Loading</h1>
+            </div>
+            <div class="modal-body text-center">
+                {!! Html::image('images/loader.gif') !!}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END LOADING MODAL -->
+
+<!-- FORGOT PASSWORD MODAL -->
+<div class="modal fade" role="dialog" id="forgotPassword">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1><span class="fa fa-key"></span> Forgot Password</h1>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="forgotPasswordForm">
+                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="col-sm-2">
+                                <label class="control-label" for="email">Email</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="email" name="email" id="forgotEmail" value="{{ old('email') }}" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger errors-forgot"></div>
+                    <div class="form-group">
+                        <div class="col-sm-12 text-center">
+                            <button type="submit" class="btn btn-info">
+                                <span class="fa fa-send-o"></span> Reset Password
+                            </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                <span class="fa fa-close"></span> Close
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END FORGOT PASSWORD -->
+
 <!-- SCRIPTS -->
+
+
 
 <script>
     (function (i, s, o, g, r, a, m) {

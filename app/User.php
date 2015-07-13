@@ -8,6 +8,10 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use Authenticatable, CanResetPassword;
@@ -24,7 +28,19 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['firstname', 'lastname', 'email', 'password'];
+    protected $fillable = [
+        'firstName',
+        'lastName',
+        'avatar',
+        'email',
+        'phone',
+        'url',
+        'facebook',
+        'twitter',
+        'instagram',
+        'about',
+        'password'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -33,4 +49,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
 
     protected $hidden = ['password', 'remember_token'];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function property() {
+
+        return $this->hasMany('\App\Properties', 'manager_id');
+    }
 }

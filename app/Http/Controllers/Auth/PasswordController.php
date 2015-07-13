@@ -18,6 +18,8 @@ class PasswordController extends Controller
     |
     */
 
+    protected $redirectTo = '/dashboard';
+
     use ResetsPasswords;
 
     /**
@@ -27,6 +29,7 @@ class PasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest');
+        // if logged should redirect to dashboard
     }
 }

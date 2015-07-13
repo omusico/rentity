@@ -44,13 +44,27 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
     Route::resource('dashboard/listing', 'ListingController');
     Route::resource('dashboard/applicants', 'ApplicantController');
-    Route::resource('dashboard/profile', 'ProfileController');
+    Route::get('dashboard/profile', ['as' => 'profile' , 'uses' => 'ProfileController@index']);
+    Route::post('dashboard/profile', ['uses' => 'ProfileController@update']);
 
 });
 
 
 
 Route::get('logout', 'Auth\AuthController@getLogout'); // normal logout
+Route::get('login', function (){
+   return "To do.. :)";
+});
+
+// Email
+
+// Password reset link request routes...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 /* LARAVEL AUTHS
 // Authentication routes...
@@ -61,4 +75,12 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+// Password reset link request routes...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
 */

@@ -14,10 +14,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('city');
+            $table->string('avatar');
+            $table->string('firstName');
+            $table->string('lastName');
             $table->string('phone');
+            $table->string('url');
+            $table->text('about'); // need to be converted into blob
+            $table->string('facebook');
+            $table->string('twitter');
+            $table->string('instagram');
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->rememberToken();

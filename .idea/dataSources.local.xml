@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - rentity@localhost" uuid="4e540bf1-8041-4f0c-b7ba-ce983aa3f88a">
+      <secret-storage>master_key</secret-storage>
+      <user-name>rentity</user-name>
+      <schema-pattern>rentity.*</schema-pattern>
+      <default-schemas>rentity.*</default-schemas>
+    </data-source>
+  </component>
+</project>
+

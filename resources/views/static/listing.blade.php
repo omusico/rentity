@@ -221,7 +221,7 @@
             <!-- Modal Content -->
             <div class="modal-body">
                 <div class="result"></div>
-                <form id="listing-form" class="form-horizontal">
+                <form id="registrationForm" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="pad-details">
                         <div class="form-group">

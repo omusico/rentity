@@ -156,14 +156,14 @@ a, a:hover, a:focus {
 .btn-clear-g:hover {
   color: white;
 }
-
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #797979;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
 }
-
 
 
 /*Helpers*/
@@ -254,7 +254,6 @@ ul.top-menu > li > .logout {
   height:17px;
   width:17px;
   display:inline-block;
-  background: url("../img/nav-expand.png") no-repeat top;
   border-radius:3px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
@@ -263,7 +262,6 @@ ul.top-menu > li > .logout {
   top:15px;
 }
 .active .dcjq-icon {
-  background: url("../img/nav-expand.png") no-repeat bottom;
   border-radius:3px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
@@ -692,7 +690,6 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .log-arrow-up {
-  background: url("../img/arrow-up.png") no-repeat;
   width: 20px;
   height: 11px;
   position: absolute;
@@ -1731,6 +1728,16 @@ PANELS CONFIGURATIONS
 
 
 /* FORMS CONFIGURATION */
+form {
+  padding: 0px 50px;
+  .input-group {
+    width: 100%;
+  }
+  label {
+    text-align: right;
+    padding: 10px 5px;
+  }
+}
 .form-panel {
   background: #ffffff;
   margin: 10px;
@@ -2237,4 +2244,10 @@ label {
   min-height: 900px;
 }
 
+/*** CUSTOM PROFILE [dyeprey] ***/
+
+.profile-info {
+
+  padding: 50px;
+}
 

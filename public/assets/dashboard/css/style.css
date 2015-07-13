@@ -129,10 +129,12 @@ a, a:hover, a:focus {
   color: white; }
 
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #797979; }
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent); }
 
 /*Helpers*/
 .centered {
@@ -202,7 +204,6 @@ ul.top-menu > li > .logout {
   height: 17px;
   width: 17px;
   display: inline-block;
-  background: url("../img/nav-expand.png") no-repeat top;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -211,7 +212,6 @@ ul.top-menu > li > .logout {
   top: 15px; }
 
 .active .dcjq-icon {
-  background: url("../img/nav-expand.png") no-repeat bottom;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px; }
@@ -564,7 +564,6 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
   border-top-color: #000; }
 
 .log-arrow-up {
-  background: url("../img/arrow-up.png") no-repeat;
   width: 20px;
   height: 11px;
   position: absolute;
@@ -1498,6 +1497,14 @@ PANELS CONFIGURATIONS
   background: #fffbcc !important; }
 
 /* FORMS CONFIGURATION */
+form {
+  padding: 0px 50px; }
+  form .input-group {
+    width: 100%; }
+  form label {
+    text-align: right;
+    padding: 10px 5px; }
+
 .form-panel {
   background: #ffffff;
   margin: 10px;
@@ -1934,5 +1941,9 @@ label {
 
 .site-min-height {
   min-height: 900px; }
+
+/*** CUSTOM PROFILE [dyeprey] ***/
+.profile-info {
+  padding: 50px; }
 
 /*# sourceMappingURL=style.css.map */

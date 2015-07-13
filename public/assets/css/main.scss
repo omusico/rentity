@@ -3,21 +3,18 @@ Client: textriley.com
 Developer: Jeffrey Valdehueza (www.dyeprey.com)
 Date: 06.19.2015
 */
-
-
 @import url(http://fonts.googleapis.com/css?family=Quicksand:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
 
+$primary-color: #60C6D2;
 
-$primary-color : #60C6D2;
+$bgDefault: #60c6d2;
+$bgHighlight: #15b7ca;
+$colDefault: #ecf0f1;
+$colHighlight: #22747e;
+$dropDown: true;
 
-$bgDefault      : #60c6d2;
-$bgHighlight    : #15b7ca;
-$colDefault     : #ecf0f1;
-$colHighlight   : #22747e;
-$dropDown       : true;
-
-html,body {
+html, body {
   height: 100%;
   width: 100%;
   font-family: 'Quicksand', sans-serif;
@@ -28,26 +25,31 @@ h1 {
   font-size: 4em;
   font-weight: 700;
 }
+
 h2 {
   font-size: 3em;
 }
+
 h3 {
   font-size: 1.7em;
   font-weight: 700;
 }
+
 h4 {
   font-size: 1.5em;
   font-weight: 700;
   color: #101010;
 }
+
 p {
   font-size: 1.3em;
   font-family: 'Open Sans', sans-serif;
 }
 
-a,a:hover {
+a, a:hover {
   text-decoration: none;
 }
+
 /*********** GLOBAL **********/
 section {
   background: url(../img/skin_side_up.png);
@@ -59,9 +61,25 @@ section {
 .overlay {
   height: 100%;
   width: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 
+/** FORM **/
+
+form {
+  .input-group, .form-control {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    width: 100%;
+  }
+}
+
+.form-panel {
+  padding: 30px;
+  margin-top: 30px;
+}
+
+/** END FORM **/
 .modal {
   z-index: 5;
   overflow-y: auto;
@@ -75,13 +93,6 @@ section {
     text-align: center;
   }
 
-  form {
-    .input-group,.form-control {
-      border-radius: 0;
-      -webkit-border-radius: 0;
-      width: 100%;
-    }
-  }
 }
 
 .modal-open {
@@ -92,11 +103,11 @@ section {
   padding-right: 0px !important;
 }
 
-
 .colored {
   color: $primary-color;
   font-weight: 700;
 }
+
 hr {
   border: 0;
   height: 1px;
@@ -109,6 +120,7 @@ hr {
 .separator {
   padding: 20px 0;
 }
+
 /* Buttons */
 
 .btn-circle {
@@ -138,6 +150,7 @@ hr {
   line-height: 1.33;
   border-radius: 35px;
 }
+
 /** RIBBONS **/
 
 .box {
@@ -146,15 +159,19 @@ hr {
   position: relative;
   border: 1px solid #BBB;
 }
+
 .ribbon {
   font-size: 0.7em;
   position: absolute;
-  right: -5px; top: -5px;
+  right: -5px;
+  top: -5px;
   z-index: 1;
   overflow: hidden;
-  width: 75px; height: 75px;
+  width: 75px;
+  height: 75px;
   text-align: right;
 }
+
 .ribbon span {
   color: #FFF;
   text-transform: uppercase;
@@ -168,27 +185,33 @@ hr {
   background: linear-gradient(#9BC90D 0%, #79A70A 100%);
   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
   position: absolute;
-  top: 19px; right: -21px;
+  top: 19px;
+  right: -21px;
 }
+
 .ribbon span::before {
   content: "";
-  position: absolute; left: 0px; top: 100%;
+  position: absolute;
+  left: 0px;
+  top: 100%;
   z-index: -1;
   border-left: 3px solid #79A70A;
   border-right: 3px solid transparent;
   border-bottom: 3px solid transparent;
   border-top: 3px solid #79A70A;
 }
+
 .ribbon span::after {
   content: "";
-  position: absolute; right: 0px; top: 100%;
+  position: absolute;
+  right: 0px;
+  top: 100%;
   z-index: -1;
   border-left: 3px solid transparent;
   border-right: 3px solid #79A70A;
   border-bottom: 3px solid transparent;
   border-top: 3px solid #79A70A;
 }
-
 
 /** BOOTSTRAP NAVBAR **/
 
@@ -204,63 +227,92 @@ hr {
     letter-spacing: 2px;
 
     &:hover, &:focus {
-      color: $colHighlight; }}
+      color: $colHighlight;
+    }
+  }
   .navbar-text {
-    color: $colDefault; }
+    color: $colDefault;
+  }
   .navbar-nav {
     > li {
       > a {
         font-size: 1.2em;
         color: $colDefault;
-        &:hover,  &:focus {
-          color: $colHighlight; }}
+        &:hover, &:focus {
+          color: $colHighlight;
+        }
+      }
       @if $dropDown {
         > .dropdown-menu {
           background-color: $bgDefault;
           > li > a {
             color: $colDefault;
-            &:hover,  &:focus {
+            &:hover, &:focus {
               color: $colHighlight;
-              background-color: $bgHighlight; }}
+              background-color: $bgHighlight;
+            }
+          }
           .divider {
-            background-color: $bgHighlight;}}}
+            background-color: $bgHighlight;
+          }
+        }
+      }
     }
     > .active {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
-        background-color: $bgHighlight; }}
+        background-color: $bgHighlight;
+      }
+    }
     > .open {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
-        background-color: $bgHighlight; }}}
+        background-color: $bgHighlight;
+      }
+    }
+  }
   .navbar-toggle {
     border-color: $bgHighlight;
     &:hover, &:focus {
-      background-color: $bgHighlight; }
+      background-color: $bgHighlight;
+    }
     .icon-bar {
-      background-color: $colDefault; }}
+      background-color: $colDefault;
+    }
+  }
   .navbar-collapse,
   .navbar-form {
-    border-color: $colDefault; }
+    border-color: $colDefault;
+  }
   .navbar-link {
     color: $colDefault;
     &:hover {
-      color: $colHighlight; }}}
+      color: $colHighlight;
+    }
+  }
+}
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu {
     > li > a {
       color: $colDefault;
       &:hover, &:focus {
-        color: $colHighlight; }}
+        color: $colHighlight;
+      }
+    }
     > .active {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
-        background-color: $bgHighlight; }}}
+        background-color: $bgHighlight;
+      }
+    }
+  }
 }
 
 .alert {
   display: none;
 }
+
 /******* SECTIONS ***********/
 
 .sub-header {
@@ -282,6 +334,7 @@ hr {
     padding-top: 50px;
   }
 }
+
 .main {
   display: table;
   background: url(../img/skin_side_up.png);
@@ -299,7 +352,7 @@ hr {
     border-radius: 10px;
     -webkit-border-radius: 10px;
     background-color: $primary-color;
-    .info-number{
+    .info-number {
       padding: 15px 0;
       color: #fff;
     }
@@ -309,6 +362,7 @@ hr {
     }
   }
 }
+
 .how-it-works {
   padding-top: 50px;
   height: 60%;
@@ -321,12 +375,14 @@ hr {
     -webkit-border-radius: 10px;
   }
 }
+
 .screenshots {
   border-top: 1px solid #cccccc;
   background: none;
   text-align: center;
 
 }
+
 .ads {
   text-align: center;
   padding: 40px 0;
@@ -349,29 +405,31 @@ hr {
   }
 }
 
+.standAloneForms{
+  height: 79%;
+}
 
 /******* CONTACT US ***********/
 .contact {
   height: 90%;
-  .input-group
-  {
+  .input-group {
     width: 100%;
   }
   textarea.form-control {
     height: 200px;
   }
- }
-
+}
 
 /******* LISTING ***********/
 .pad-details {
   padding: 10px;
 
-  .input-group,.form-control {
+  .input-group, .form-control {
     width: 100%;
 
   }
 }
+
 .as-seen {
   padding: 20px 0 !important;
   border-bottom: 1px solid #f5f5f5;
@@ -381,6 +439,7 @@ hr {
     padding: 15px 0;
   }
 }
+
 /******* PAYMENT ***********/
 
 .payment {
@@ -411,7 +470,6 @@ hr {
     }
   }
 }
-
 
 /******* PHOTOGRAPHY ***********/
 .photography {
@@ -448,6 +506,7 @@ hr {
   }
 
 }
+
 .ourworks {
   padding: 100px 0;
   border-top: 1px solid #f5f5f5;
@@ -465,7 +524,7 @@ hr {
     box-shadow: none;
     border: none;
     border-bottom: 2px solid $primary-color;
-    &:focus,&:active {
+    &:focus, &:active {
       box-shadow: none;
       outline: none;
 
@@ -476,6 +535,7 @@ hr {
     margin-right: auto;
   }
 }
+
 /******* FOOTER ***********/
 footer {
   border-top: 1px solid #cccccc;
@@ -493,13 +553,14 @@ footer {
     }
   }
 }
+
 /******* DASHBOARD ***********/
 .dashboard {
   .container {
     border: 1px solid #f5f5f5;
   }
   .sidebar {
-    
+
     ul {
       li {
         a {
@@ -510,7 +571,7 @@ footer {
 }
 
 /******* RESPONSIVE FIXES ***********/
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .main {
     h2 {
       font-size: 2em;
@@ -518,6 +579,7 @@ footer {
   }
 
 }
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   h1 {
     font-size: 2em;
@@ -544,7 +606,7 @@ footer {
       padding: 5px;
     }
 
-    p{
+    p {
       font-size: 1em;
     }
   }

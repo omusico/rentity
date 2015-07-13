@@ -19,6 +19,7 @@
     {!! Html::style('assets/dashboard/js/gritter/css/jquery.gritter.css') !!}
     {!! Html::style('assets/dashboard/lineicons/style.css') !!}
 
+    @yield('load_to_header')
     <!-- Dashboard Style -->
     {!! Html::style('assets/dashboard/css/style.css') !!}
     {!! Html::style('assets/dashboard/css/style-responsive.css') !!}
@@ -192,9 +193,6 @@
         </header>
         <!--header end-->
 
-        <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
         <!--sidebar start-->
         <aside>
             <div id="sidebar" class="nav-collapse ">
@@ -202,9 +200,11 @@
                 <ul class="sidebar-menu" id="nav-accordion">
 
                     <p class="centered">
-                        <a href="profile.html"><img src="assets/dashboard/img/ui-sam.jpg" class="img-circle" width="60"></a>
+                        <a href="profile.html">
+                        {!! Html::image('assets/dashboard/img/ui-sam.jpg', '', ['class' => 'img-circle', 'width' => '60px']) !!}
+                        </a>
                     </p>
-                    <h5 class="centered">Valdehueza, Jeffrey John</h5>
+                    <h5 class="centered">{{ Auth::user()->lastName }}, {{ Auth::user()->firstName }}</h5>
 
                     <li class="mt">
                         <a class="active" href="/dashboard">
@@ -274,12 +274,16 @@
 
     <!-- JAVASCRIPTS -->
 
-    {!! Html::script('assets/dashboard/js/jquery-1.8.3.min.js') !!}
+    {!! Html::script('assets/vendors/jquery-2.1.4.min.js') !!}
     {!! Html::script('assets/dashboard/js/bootstrap.min.js') !!}
     {!! Html::script('assets/dashboard/js/jquery.dcjqaccordion.2.7.js') !!}
     {!! Html::script('assets/dashboard/js/jquery.scrollTo.min.js') !!}
     {!! Html::script('assets/dashboard/js/jquery.nicescroll.js') !!}
     {!! Html::script('assets/dashboard/js/jquery.sparkline.js') !!}
+
+
+    <!-- load from blade -->
+    @yield('load_to_footer')
 
 
     <!--common script for all pages-->
@@ -291,6 +295,8 @@
     <!--script for this page-->
     {!! Html::script('assets/dashboard/js/sparkline-chart.js') !!}
     {!! Html::script('assets/dashboard/js/zabuto_calendar.js') !!}
+
+
     <!--
     <script type="text/javascript">
         $(document).ready(function() {
@@ -355,6 +361,20 @@
         }
     </script>
 
+<!-- LOADING MODAL -->
+<div class="modal fade" role="dialog" id="loading">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Loading</h1>
+            </div>
+            <div class="modal-body text-center">
+                {!! Html::image('images/loader.gif') !!}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END LOADING MODAL -->
 
 </body>
 

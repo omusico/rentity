@@ -36,10 +36,15 @@ trait ResetsPasswords
 
         switch ($response) {
             case Password::RESET_LINK_SENT:
-                return redirect()->back()->with('status', trans($response));
+
+                //return redirect()->back()->with('status', trans($response));
+                // Ajaxify
+                return json_encode(['errorNumber' => 1]);
 
             case Password::INVALID_USER:
-                return redirect()->back()->withErrors(['email' => trans($response)]);
+                // return redirect()->back()->withErrors(['email' => trans($response)]);
+                // Ajaxify
+                return json_encode(['errorNumber' => 2, 'message' => 'Account Does not Exists']);
         }
     }
 
